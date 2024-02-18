@@ -5,14 +5,14 @@ const Schema = mongoose.Schema;
 
 
 const followsSchema = new Schema({
-    follower:[{
+    follower:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
-    }],
-    following:[{
+    },
+    following:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
-    }]
+    }
 });
 
 

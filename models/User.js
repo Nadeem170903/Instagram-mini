@@ -47,10 +47,10 @@ const userSchema = new Schema({
         ref:'Post',
     }],
     follower:[{
-        type:mongoose.Schema.Types.ObjectId , ref:'Follows'
+        type:mongoose.Schema.Types.ObjectId , ref:'User'
     }],
     following:[{
-        type:mongoose.Schema.Types.ObjectId , ref:'Follows'
+        type:mongoose.Schema.Types.ObjectId , ref:'User'
     }]
 
 });

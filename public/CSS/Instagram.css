@@ -480,7 +480,6 @@ span img{
  }
 
  .username-edit{
-  width:40px;
   display:flex;
   padding-bottom:20px;
 
@@ -498,13 +497,13 @@ span img{
  }
 
 
- .button{
-  display:flex;
+ .profile-detail .button{
+   display:grid;
+  grid-template-columns: 91px 110px;
+  grid-gap: 10px;
   width:222px;
-  justify-content:space-between;
-  
-
  }
+
    
  .btn{
  
@@ -521,6 +520,28 @@ span img{
   background:rgb(73, 72, 72);
   border-radius:8px;
   
+ }
+ .follow-message .follow-btn{
+  width:91px;
+  height:40px;
+  font-weight:550;
+  font-size:15px;
+  padding: 7px 16px 7px 16px;
+  color:white;
+  background:#0095f6;
+  border-radius:8px;
+  border:none;
+ }
+ .follow-message .message-btn{
+  width:110px;
+  height:40px;
+  font-weight:550;
+  font-size:15px;
+  padding: 7px 16px 7px 16px;
+  color:white;
+  background:#383939;
+  border-radius:8px;
+  border:none;
  }
 
  .btn:hover{

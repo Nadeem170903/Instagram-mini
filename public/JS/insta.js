@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
            
             try {
                 // Send a POST request to your server to update the like count
-                const response = await fetch(`like/${postId}`, {
+                const response = await fetch(`/like/${postId}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -429,7 +429,7 @@ unlikes.forEach(unlike => unlike.addEventListener('click',async (event)=>{
     let userId = unlike.getAttribute('data-user-id');
 
 
-    let response = await fetch(`unlike/${postId}`,{
+    let response = await fetch(`/unlike/${postId}`,{
         method:'POST',
         headers:{
             'content-type':'application/json',
@@ -492,6 +492,31 @@ document.addEventListener('click',(event)=>{
 })
 
 });
+
+
+// followers 
+
+document.addEventListener('DOMContentLoaded',()=>{
+    let followBtn = document.querySelector('.follow-btn');
+    let currUserId = followBtn.getAttribute('followed-user-id');
+    let postUserId = followBtn.getAttribute('post-user-id');
+
+
+     followBtn.addEventListener('click',async()=>{
+        console.log('click');
+        console.log(currUserId);
+        console.log(postUserId);
+
+        let response = await fetch(`/follow/${currUserId}`,{
+            method:"POST",
+            headers:{
+                'content-type':'application/json',
+            },
+            body : JSON.stringify({postUserId})
+        })
+
+     })
+})
 
 
 

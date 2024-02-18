@@ -96,11 +96,13 @@ app.get('/home', async (req,res)=>{
 app.post('/home/profile/:id',async(req,res)=>{
    let {id} = req.params;
    let {username} = req.query;
+   console.log('this is post username',username);
    console.log(username);
    let post = await Post.findById(id).populate('user').populate('likes').populate('comments');
-   let user = await User.findByUsername(username).populate('follower').populate('following');
-   console.log(user.follower.length);
-    res.render('listings/userProfile.ejs',{post , user});
+   let user = await User.findByUsername(username);
+   console.log('this is follower length',user.follower.length);
+   console.log('this is user at 104',user)
+    res.render('listings/showUserProfile.ejs',{post , user});
 });
 
 //post route
@@ -114,7 +116,6 @@ app.post('/post',postValidator,upload.single('mediaUrl'),async (req,res)=>{
         url: req.file.path,
     }
     newPost.media.push(newUrlFilename);
-
     let savepst = await newPost.save();
     console.log(savepst)
    
@@ -132,10 +133,7 @@ app.post('/like/:id',async (req,res)=>{
         let likeCount = 1;
         let post = await Post.findById(id).populate('likes');
         console.log("thsi is userId",userId);
-        
-
          let likePost = post.likes.some(like => like.user.equals(userId));
-
          if(!likePost){
             let like = new Like({user:userId,post:id,likeCount});
             await like.save();
@@ -147,8 +145,6 @@ app.post('/like/:id',async (req,res)=>{
             });
             res.json({populatedPost});
         }
-
-       console.log("done")
     } catch(e){
         console.log(e);
     }
@@ -193,6 +189,30 @@ app.post('/unlike/:id',async (req,res)=>{
       new expressError(404,error);
   }
 });
+
+
+
+
+
+app.post('/follow/:id',async(req,res,next)=>{
+     let{id} = req.params;
+     let {postUserId} = req.body;
+     console.log('this is currr user Id',id);
+     console.log('this is post user Id',postUserId);
+     let followerUser = await User.findById(postUserId).populate('follower');
+     let followingUser = await User.findById(id);
+     let hasFollowed = followerUser.follower.some(follower => follower._id.equals(id));
+      if(!hasFollowed){
+        await User.findByIdAndUpdate(postUserId,{$push:{follower:id}});
+        await User.findByIdAndUpdate(id,{$push:{following:postUserId}});    
+      }else{
+        console.log('user already followed');
+      }
+
+ });
+        
+
+
 
 
 

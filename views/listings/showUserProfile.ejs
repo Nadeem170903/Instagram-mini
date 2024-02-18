@@ -11,14 +11,15 @@
           </div>
           
           <div class="profile-detail">
-            <div class="username-edit">
-              <a href="###" class="username"><%=post.user.username%></a>
-             <div class="edit-archiv-btn">
-                <div class="button">
-                   <a class="btn" href="###">Edit profile</a>
-                   <a class="btn" href="###">View archiv</a>
-                </div>
-             </div>
+            <div class="username-edit username-follow-message">
+              <div class="username"><a href="###" ><%=post.user.username%></a></div>
+              <div class="edit-archiv-btn follow-message">
+                 <div class="button">
+                    <button followed-user-id="<%=currUser._id%>" Post-user-id="<%=user._id%>" class="follow-btn">follow</button>
+                    <button class="message-btn">message</button>
+                 </div>
+              </div>
+
             </div>
             <div class="follower-following">
                <ul>
