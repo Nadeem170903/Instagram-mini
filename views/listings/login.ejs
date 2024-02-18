@@ -1,0 +1,65 @@
+<% layout('layouts/boilerplate.ejs') -%>
+<div class="login-main-page">
+
+    <div class="login-field form">
+        <div class="login-logo">
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+        <form method="POST" action="/login">
+            <input name="username" placeholder="username" required>
+            <input name="password" placeholder="password" required>
+            <button class="signUpbtn">Login</button>
+        </form>
+    </div>
+</div>
+
+
+<style>
+    .login-main-page{
+          width:100%;
+          height:100%;
+
+    }
+
+    .login-logo i{
+        font-size:6em;
+         background-image: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #FD1D1D, #F56040, #F77737, #FCAF45);
+         background-size: 100%;
+         background-repeat: repeat;
+         -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+    }
+
+    .login-logo{
+        width:100px;
+        height:100px;
+       padding:8px;
+       margin:auto;
+    }
+
+
+    .login-field{
+
+        width:348px;
+        height:460px;
+        border:1px solid grey;
+        margin:auto;
+        margin-top:20px;
+    }
+    
+
+    .login-field form{
+        width:348px;
+        height:150px;
+        display:flex;
+        flex-direction:column;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+    }
+
+
+
+</style>

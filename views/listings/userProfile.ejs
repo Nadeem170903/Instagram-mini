@@ -1,0 +1,54 @@
+<% layout('layouts/boilerplate.ejs')-%>
+<div class="main-pb">
+  <div class="container">
+    <div class="profile-box">
+        <div class="box-item">
+         <div class="profile-item">
+          <div class="display-profile">
+            <div class="dp">
+              <img src="https://static.toiimg.com/thumb/90819831.cms?width=680&height=512&imgsize=14014">
+            </div>
+          </div>
+          
+          <div class="profile-detail">
+            <div class="username-edit">
+              <a href="###" class="username"><%=post.user.username%></a>
+             <div class="edit-archiv-btn">
+                <div class="button">
+                   <a class="btn" href="###">Edit profile</a>
+                   <a class="btn" href="###">View archiv</a>
+                </div>
+             </div>
+            </div>
+            <div class="follower-following">
+               <ul>
+                  <li> <a href="###" class="posts">0 posts</a></li>
+                  <li> <button  class="followers"><%=user.follower.length%> Follower</button></li>
+                  <li><a href="###" class="followings"><%=user.following.length%> Following</a></li>
+                   
+               </ul>
+            </div>
+            <div class="name-boi">
+              <p class="name"><%=user.Name%></p>
+              <p class="bio" >@Business<br>
+                .
+                Fundamental analysis in stock market📉📈, investment tips <br>for learn
+                Business mindk</p>
+            </div>
+          </div>
+         </div>
+         <div class="profile-story"></div>
+         <div class="profile-pst">
+          <div class="pst-btn">
+            <span class="post"></span>
+            <span class="saved"></span>
+            <span class="tag"></span>
+          </div>
+         </div>
+         <div class="profile-postes"></div>
+       
+        </div>
+     </div>
+  </div>
+</div>
+

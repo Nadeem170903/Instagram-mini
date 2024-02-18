@@ -1,0 +1,108 @@
+ <% layout('layouts/boilerplate.ejs') -%>
+    <div class="main">
+      
+        <section>
+           <div class="display-s">
+              <div class="display">
+                <div class="display-ss">
+                    <div  class="display-m">
+                        <div class="f-screen">
+                            <div class="main-screen">
+                                <div class="screen">
+                                    <div class="story-slider">
+                                        <div class="story-section">
+                                            <div class="red"></div>
+                                            <div class="blue"></div>
+                                            <div class="white"></div>
+                                            <div class="red"></div>
+                                            <div class="blue"></div>
+                                            <div class="red"></div>
+                                            <div class="blue"></div>
+                                            <div class="white"></div>
+                                            <div class="blue"></div>
+                                            <div class="white"></div>
+                                            <div class="red"></div>
+                                            <div class="blue"></div>
+                                            <div class="red"></div>
+                                            <div class="blue"></div>
+                                            <div class="white"></div>
+                                            <div class="blue"></div>
+                                            <div class="white"></div>
+                                            <div class="red"></div>
+                                            <div class="blue"></div>
+                                            <div class="red"></div>
+                                            <div class="blue"></div>
+                                            <div class="white"></div>
+                                            <div class="blue"></div>
+                                            <div class="white"></div>
+                                            <div class="red"></div>
+                                            <div class="blue"></div>
+                                            <div class="red"></div>
+                                            <div class="blue"></div>
+                                            <div class="white"></div>
+                            
+                                        </div>
+        
+                                    </div>
+                                 
+                                    
+                                    <div class="post-section" data-user-id="<%=currUser._id%>">
+                                        <% for(p of pst) {%>
+                                        <div class="post">
+                                            <div class="post-maker">
+                                              <div class="profile-option">
+                                                <span class="profile-img">
+                                                    <span class="profile-outline"></span>
+                                                </span>
+                                                <span class="profile-name">
+                                                    <form method="POST" action="/home/profile/<%=p.id%>/?username=<%=p.user.username%>">
+                                                        <button><%= p.user.username%></button>
+                                                    </form>
+                                                </span>
+                                                <span class="profile-moreOption">
+                                                    <a href="###"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+        
+                                                </span>
+                                              </div>
+                                            </div>
+                                            <div class="media">
+                                                <div class="img-scroll">
+                                                    <% for(m of p.media) {%>
+                                                    <span  class="user-post">
+                                                        <img  style="width:462px; height:462px; " src="<%=m.url%>">
+                                                    </span>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                            <div class="caption-sections">
+                                                <div class="like-comment-share-save">
+                                                    <div class="l-c-s">
+                                                        <span class="like">
+                                                            <form method="POST" action="/like/<%=p.id%>"><button   data-post-id="<%-p.id%>" class="likeBtn"><i class="fa-regular fa-heart"></i></button></form>
+                                                            <form method="POST" action="/unlike/<%=p.id%>"><button   data-post-id="<%-p.id%>" class="unlikeBtn"><i class="fa-solid fa-heart"></i></button></form>
+                                                        </span>
+                                                        <span class="comment"><i class="fa-regular fa-comment"></i></span>
+                                                        <span class="share"><i class="fa-regular fa-paper-plane"></i></span>
+                                                    </div>
+                                                    <div class="save"><i class="fa-regular fa-bookmark"></i></div>
+                                                </div>
+                                                <div class="like-count"><p class="total-likes"><%=p.likes.length%></p></div>
+                                                <div class="tager"><p>isiisisisiis</p></div>
+                                                <div class="show-comment"><a href="###">View all 24 comments</a></div>
+                                                <div class="add-comment">
+                                                    <textarea placeholder="Add a Comment"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="suggestion"></div>
+                       </div>
+                </div>
+              </div>
+           </div>
+        </section>
+    </div>

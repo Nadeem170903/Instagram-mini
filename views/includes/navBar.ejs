@@ -1,0 +1,23 @@
+<div class="menu-bar">
+    <div class="logo">
+        .<span><i class="fa-brands fa-instagram"></i></span>
+        <img src="C:\Users\zak\Desktop\Instagram-Project\public\insta-requirement\instaLogo.png">
+    </div>
+    <div class="menu-list">
+        <ul>
+            <li><div><a href="/home" class="menu-btn"><i class="fa-solid fa-house"></i><p>Home</p></a></div></li>
+            <li><div><a href="/test" class="menu-btn"><i class="fa-solid fa-magnifying-glass"></i><p>Search</p></a></div></li>
+            <li><div><a href="###" class="menu-btn"><i class="fa-solid fa-compass"></i><p>Explore</p></a></div></li>
+            <li><div><a href="###" class="menu-btn"><i class="fa-solid fa-clapperboard"></i><p>Reels</p></a></div></li>
+            <li><div><a href="###" class="menu-btn"><i class="fa-regular fa-paper-plane"></i><p>Messages</p></a></a></li>
+            <li><div><a href="###" class="menu-btn"><i class="fa-solid fa-heart"></i><p>Notification</p></a></div></li>
+            <li><div><a href="###" class="Create menu-btn"><i class="fa-solid fa-plus"></i><p>Create</p></a></div></li>
+            <% if (currUser && currUser.username) { %>
+            <li><div><a href="/<%=currUser.username%>"><img src="<%=currUser.profile.url%>" style="height:25px; width:25px;"></img><p>Profile</p></a></div></li>
+            <% } %>
+        </ul>
+    </div>
+    <div class="more">
+        <a id="more" href="###"><i class="fa-solid fa-bars"></i><span>More</span></a>
+    </div>
+</div>

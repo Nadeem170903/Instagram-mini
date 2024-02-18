@@ -1,0 +1,157 @@
+<div class="followers-page hide">
+    <div class="followers-user">
+        <div class="follower-tab"><h3>Follower</h3><span class="close-tab"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="follower-search"><input type="search" placeholder="search"></div>
+        <div class="follower-list">
+            <ul>
+                <li>
+                    <div class="follower-user">
+                        <div class="follower-profile"><img></div>
+                        <div class="follower-name">
+                            <span class="follower-username">Bob8323</span>
+                            <span class="follower-fullname">Bob</span>
+                        </div>
+                        <div class="followed-btn">
+                            <button>remove</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="follower-user">
+                        <div class="follower-profile"><img></div>
+                        <div class="follower-name">
+                            <span class="follower-username">Bob8323</span>
+                            <span class="follower-fullname">Bob</span>
+                        </div>
+                        <div class="followed-btn">
+                            <button>remove</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+<style>
+    .followers-page{
+        width:100%;
+        height:100%;
+        background-color:transparent;
+        position:absolute;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+       
+    }
+
+    .followers-page ul{
+         z-index: 1;
+    }
+
+    .hide{
+        display:none;
+    }
+
+
+    .followers-user{
+        width:420px;
+        height:420px;
+        background-color: rgb(47, 46, 46);
+        z-index: 1;
+    }
+    .followers-user .follower-tab{
+        width:420px;
+        height:55px;
+        border-bottom:1px solid grey;
+        display:flex;
+
+    }
+
+    .follower-tab h3{
+        color:white;
+        width:380px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left:30px;
+
+    }
+    .close-tab{
+        width:20%;
+    }
+    .close-tab i{
+        color:white;
+        font-size:24px;
+
+    }
+
+    .follower-tab .close-tab{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .follower-search input{
+        width:400px;
+        background-color: rgb(47, 46, 46);
+        border:none;
+        font-size: 20px;
+        color:white;
+    }
+
+    .follower-list{
+        overflow-y:scroll;
+        overflow-x:hidden;
+    }
+    .follower-list .follower-user{
+        width:372px;
+        height:44px;
+        padding:8px 16px 8px 16px;
+        display:flex;
+        justify-content: space-between;
+    }
+    .follower-user .follower-profile{
+        width:54px;
+        height:49px;
+        background-color:yellow;
+        border-radius: 50%;
+
+    }
+
+    .follower-user .follower-name{
+        width:242px;
+        margin-top:10px;
+        display:flex;
+        flex-direction: column;
+        color:white;
+    }
+
+    .follower-user .follower-name span{
+        margin-left:10px;
+    }
+
+    .follower-name .follower-username{
+        font-size: 18px;;
+    }
+    .follower-name .follower-fullname{
+        font-size:15px;
+        opacity:0.7;
+    }
+    
+
+    .follower-user .followed-btn button{
+        width:100px;
+        height:40px;
+        border:none;
+        border-radius: 10px;
+        padding: 0 16px 0 16px;
+        background-color:rgb(109, 107, 107);
+        font-weight: 600;
+        font-size: 18px;
+        color:white;
+
+    }
+</style>
+
+

@@ -1,0 +1,64 @@
+<% layout('layouts/boilerplate.ejs') -%>
+<div class="signUp-page">
+    <form method="POST" action="/signup" id="signUpForm" class="needs-validation" enctype="multipart/form-data" novalidate>
+        <div class="sign-up-form hide active" id="Step1">
+            <div class="signUpLogo">
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+          
+            <div class="form">
+                <div class="signUp">
+                    <span class="p">Sign up to see photos and videos from your friends.</span>
+                    <button id="facebookBtn"><i class="fa-brands fa-square-facebook"></i>Log in with facebook</button>
+                    <div class="facebook-api">
+                        <div class="line"></div><span>or</span><div class="line"></div>
+                    </div>
+                    <input  class="validate" id="contact" name="contact"  placeholder="mobile no. or email address"  required>
+                    <input class="validate" name="fullname" type="fullname" placeholder="Full Name" required>
+                    <input class="validate" name="username" type="username" placeholder="Username" required>
+                    <input class="validate" name="password" type="password" placeholder="Password" required>
+                    <p>
+                       <span>People who use our service may have uploaded your contact information to Instagram. Learn More</span>
+                       <br>
+                       <br>
+                       <span>By signing up, you agree to our Terms , Privacy Policy and Cookies Policy</span>
+                    </p>
+                    <button id="noSubmit"  class="signUpbtn">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="sign-up-form hide" id="Step2">
+            <div class="signUpLogo">
+                <i class="fa-solid fa-cake-candles"></i>
+            </div>
+            <div class="DoB-section">
+                <span>Add Your Birthday</span>
+                <span>
+                    <p>This won't be a part of your public profile.</p>
+                    <p>why do I need to provide date of birth</p>
+                </span>
+                <div class="DoB"></div>
+                <button id="noSubmit1"  class=" signUpbtn">next</button>
+            </div>
+
+        </div>
+        <div class="sign-up-form hide" id="Step3">
+            <div class="user-dp">
+                <img src="https://i.pinimg.com/474x/09/21/fc/0921fc87aa989330b8d403014bf4f340.jpg" class="dp">
+            </div>
+            <input id="file" class="hi" type="file" name="profile">
+            <button id="noSubmit2" class="selectbtn signUpbtn">choose profile</button>
+                  
+            
+        </div>
+    </form>
+  
+</div>
+
+
+
+<style>
+
+
+</style>
+
