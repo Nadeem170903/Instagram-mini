@@ -46,7 +46,6 @@ router.get('/login',(req,res)=>{
 
 router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), async (req, res) => {
     if (req.isAuthenticated()) {
-       
         res.redirect('/home');
     } else {
         console.log('User not authenticated');

@@ -496,10 +496,20 @@ document.addEventListener('click',(event)=>{
 
 // followers 
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded',async()=>{
     let followBtn = document.querySelector('.follow-btn');
     let currUserId = followBtn.getAttribute('followed-user-id');
     let postUserId = followBtn.getAttribute('post-user-id');
+
+    let response = await fetch(`/followed/${currUserId}`,{
+        method:"POST",
+        headers:{
+            'content-type':'application/json',
+        },
+        body : JSON.stringify({postUserId})
+    });
+    let data = await response.json();
+    console.log('this is data',data);
 
 
      followBtn.addEventListener('click',async()=>{

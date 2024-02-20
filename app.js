@@ -191,6 +191,17 @@ app.post('/unlike/:id',async (req,res)=>{
 });
 
 
+app.post('/followed/:id',wrapA(async(req,res)=>{
+    let{id} = req.params;
+    let {postUserId} = req.body;
+    console.log('this is currr user Id',id);
+    console.log('this is post user Id',postUserId);
+    let followerUser = await User.findById(postUserId).populate('follower');
+    let followingUser = await User.findById(postUserId).populate('following');
+    let hasFollowing = followerUser.following.some(following => following._id.equals(id));
+    let hasFollowed = followerUser.follower.some(follower => follower._id.equals(id));
+    res.json({hasFollowed,hasFollowing});
+}));
 
 
 
@@ -211,12 +222,6 @@ app.post('/follow/:id',async(req,res,next)=>{
 
  });
         
-
-
-
-
-
-
 
 
 app.use('/',singUpRouter);
