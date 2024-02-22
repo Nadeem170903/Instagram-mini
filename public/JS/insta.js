@@ -498,8 +498,11 @@ document.addEventListener('click',(event)=>{
 
 document.addEventListener('DOMContentLoaded',async()=>{
     let followBtn = document.querySelector('.follow-btn');
+    let followingBtn = document.querySelector('.followings-btn');
     let currUserId = followBtn.getAttribute('followed-user-id');
     let postUserId = followBtn.getAttribute('post-user-id');
+    let followers = document.querySelector('.follower-count');
+    let following = document.querySelector('.followings');
 
     let response = await fetch(`/followed/${currUserId}`,{
         method:"POST",
@@ -508,8 +511,15 @@ document.addEventListener('DOMContentLoaded',async()=>{
         },
         body : JSON.stringify({postUserId})
     });
-    let data = await response.json();
-    console.log('this is data',data);
+    let {hasFollowed , hasFollowing , currUser} = await response.json();
+    console.log('this is currUser',currUser)
+    if(hasFollowed){
+        followBtn.style.display = "none";
+        followingBtn.style.display = "block";
+    }else{
+        followingBtn.style.display = "none";
+        followBtn.style.display = "block";
+    }
 
 
      followBtn.addEventListener('click',async()=>{
@@ -523,9 +533,37 @@ document.addEventListener('DOMContentLoaded',async()=>{
                 'content-type':'application/json',
             },
             body : JSON.stringify({postUserId})
-        })
+        });
 
-     })
+        let data = await response.json();
+        console.log('follower and followeing data',data);
+         followers.innerText = data.follow.follower.length;
+         followBtn.style.display = "none";
+         followingBtn.style.display = "block";
+
+     });
+
+     // unfollow 
+     followingBtn.addEventListener('click',async()=>{
+        console.log('click');
+        console.log(currUserId);
+        console.log(postUserId);
+
+        let response = await fetch(`/unfollow/${currUserId}`,{
+            method:"POST",
+            headers:{
+                'content-type':'application/json',
+            },
+            body : JSON.stringify({postUserId})
+        });
+
+        let data = await response.json();
+
+        followers.innerText = data.follow.follower.length;
+        followBtn.style.display = "block";
+        followingBtn.style.display = "none";
+
+     });
 })
 
 

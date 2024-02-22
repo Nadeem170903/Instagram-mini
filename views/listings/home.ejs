@@ -40,9 +40,7 @@
                                             <div class="red"></div>
                                             <div class="blue"></div>
                                             <div class="white"></div>
-                            
                                         </div>
-        
                                     </div>
                                  
                                     
@@ -60,7 +58,7 @@
                                                     </form>
                                                 </span>
                                                 <span class="profile-moreOption">
-                                                    <a href="###"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                                                    <a href="###"><i class="fa-solid fa-ellipsis"></i></a>
         
                                                 </span>
                                               </div>
@@ -106,3 +104,37 @@
            </div>
         </section>
     </div>
+
+
+       
+<!-- 
+
+    <script>
+        let nextBtn = document.querySelector('.nextBtn');
+        let prevBtn = document.querySelector('.prevBtn');
+        let slider = document.querySelector('.story-section');
+        let slideIndex = 0;
+
+// Move to previous slide
+prevBtn.addEventListener('click', () => {
+    slideIndex = (slideIndex - 1 + slider.children.length) % slider.children.length;
+    updateSlidePosition();
+});
+
+// Move to next slide
+nextBtn.addEventListener('click', () => {
+    slideIndex = (slideIndex + 1) % slider.children.length;
+    updateSlidePosition();
+});
+
+function updateSlidePosition() {
+    const slideWidth = slider.children[0].offsetWidth;
+    slider.style.transform = `translateX(${-slideIndex * slideWidth}px)`;
+}
+          
+        
+    </script>  -->
+
+
+
+    

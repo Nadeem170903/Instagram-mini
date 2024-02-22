@@ -127,7 +127,7 @@ ul li i {
 }
 
 .follower-following button{
-  width:81px;
+  width:92px;
   height:19px;
   border:none;
   background-color:transparent;
@@ -243,6 +243,10 @@ li:hover{
    overflow-x:scroll;
    scroll-snap-type: none;
  }
+
+
+
+
  .story-slider::-webkit-scrollbar {
    display: none;
  }
@@ -250,6 +254,7 @@ li:hover{
 
  .story-section{
    display:flex;
+   width:630px;
  }
 
 
@@ -330,6 +335,7 @@ li:hover{
  .img-scroll{
    display:flex;
    overflow-x:scroll;
+   margin-top:10px;
  }
  .img-scroll::-webkit-scrollbar{
    display:none;
@@ -499,7 +505,7 @@ span img{
 
  .profile-detail .button{
    display:grid;
-  grid-template-columns: 91px 110px;
+  grid-template-columns: 110px 110px;
   grid-gap: 10px;
   width:222px;
  }
@@ -529,6 +535,18 @@ span img{
   padding: 7px 16px 7px 16px;
   color:white;
   background:#0095f6;
+  border-radius:8px;
+  border:none;
+  justify-self: center;
+ }
+ .followings-btn{
+  width:110px;
+  height:40px;
+  font-weight:550;
+  font-size:15px;
+  padding: 7px 16px 7px 16px;
+  color:white;
+  background:#383939;
   border-radius:8px;
   border:none;
  }

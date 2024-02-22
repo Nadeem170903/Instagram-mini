@@ -16,6 +16,7 @@
               <div class="edit-archiv-btn follow-message">
                  <div class="button">
                     <button followed-user-id="<%=currUser._id%>" Post-user-id="<%=user._id%>" class="follow-btn">follow</button>
+                    <button followed-user-id="<%=currUser._id%>" Post-user-id="<%=user._id%>" class="followings-btn">following</button>
                     <button class="message-btn">message</button>
                  </div>
               </div>
@@ -24,7 +25,7 @@
             <div class="follower-following">
                <ul>
                   <li> <a href="###" class="posts">0 posts</a></li>
-                  <li> <button  class="followers"><%=user.follower.length%> Follower</button></li>
+                  <li><button  class="followers"><h4 class="follower-count" style="display:inline;"><%=user.follower.length%></h4> Follower</button></li>
                   <li><a href="###" class="followings"><%=user.following.length%> Following</a></li>
                    
                </ul>
