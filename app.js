@@ -244,7 +244,13 @@ app.post('/follow/:id',async(req,res,next)=>{
      }else{
        console.log('user already followed');
      }
- }))
+ }));
+
+
+
+ app.get('/messages',(req,res)=>{
+    res.render('/views/includes/messages.ejs');
+ })
         
 
 

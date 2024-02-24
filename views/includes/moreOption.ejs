@@ -1,16 +1,20 @@
 <div class="moreOption  hide">
-    <div class="settings"><i class="fa-solid fa-gear"></i> settings</div>
-    <div class="activity"><i class="fa-solid fa-chart-line"></i> Your activity</div>
-    <div class="Saved"><i class="fa-regular fa-bookmark"></i> Saved</div>
-    <div class="Switch-appearance"><i class="fa-solid fa-moon"></i> Switch appearnce</div>
-    <div class="report"><i class="fa-solid fa-circle-exclamation"></i> Report problem</div>
-    <div class="threads"><i class="fa-brands fa-threads"></i> Threads</div>
-    <div class="switch-accounts">Switch accounts</div>
-    <div class="logout-button">
-        <form method="POST" action="/logout">
-            <button>Log out</button>
-        </form>
-    </div>
+    <ul>
+        <li><div class="settings"><i class="fa-solid fa-gear"></i><a>Settings</a></div></li>
+        <li><div class="activity"><i class="fa-solid fa-chart-line"></i> <a>Your activity</a></div></li>
+        <li><div class="Saved"><i class="fa-regular fa-bookmark"></i><a>Saved</a></div></li>
+        <li><div class="Switch-appearance"><i class="fa-solid fa-moon"></i><a>Switch appearnce</a></div></li>
+        <li><div class="report"><i class="fa-solid fa-circle-exclamation"></i><a>Report problem</a></div></li>
+        <li><div class="threads"><i class="fa-brands fa-threads"></i><a>Threads</a></div></li>
+        <li><div class="switch-accounts"><button>Switch accounts</button></div></li>
+        <li><div class="logout-button">
+            <form method="POST" action="/logout">
+                <button>Log out</button>
+            </form>
+        </div></li>
+    </ul>
+
+  
 
 </div>
 
@@ -18,15 +22,20 @@
 
 <style>
     .moreOption{
-        width:250px;
+        width:274px;
         height:460px;
-        padding:8px;
-        background-color:#363637;
+        background-color: #363637;
         position:absolute;
         z-index:1;
         bottom:100px;
         left:15px;
         border-radius:20px;
+    }
+
+    .moreOption ul{
+        list-style-type: none;
+        width:250px;
+        padding:8px;
     }
 
 
@@ -41,15 +50,61 @@
     .moreOption div i{
         font-size:20px;
         color:white;
+        margin-right:20px;
+        margin-left:20px;
     }
+    
+
+    .moreOption div {
+        width:218px;
+        height:18px;
+        padding:16px;
+        font-size:14px;
+        color:white;
+        background-color: #363637;
+        border-radius:8px;
+    }
+    .moreOption div:hover {
+        width:218px;
+        height:18px;
+        padding:16px;
+        font-size:14px;
+        color:white;
+        background-color: #4a4a4a;
+    }
+
+    .moreOption .threads{
+     border-top:2px solid #525253;
+     border-bottom: 2px solid #525253;
+     margin-top:10px;
+    }
+
+    li .switch-accounts button{
+         border:none;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+         height:18px;
+         padding:16px;
+         color:white;
+         background-color: transparent;
+         font-size:16px;
+    }
+
+
+    li .switch-accounts,.logout-button{
+        margin-top:10px;
+        width:218px;
+    }
+
 
     .logout-button button{
         border:none;
-        width:200px;
-        height:80px;
         color:white;
-        font-size:20px;
-        background-color:#363637;
+        font-size:16px;
+        padding-left: 16px;
+        margin-bottom: 10px;;
+        background-color:transparent;
 
     }
 </style>

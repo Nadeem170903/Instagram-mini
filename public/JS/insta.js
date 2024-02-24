@@ -568,6 +568,31 @@ document.addEventListener('DOMContentLoaded',async()=>{
 
 
 
+// messages 
+
+document.addEventListener('DOMContentLoaded',()=>{
+    let messageBtn = document.querySelector('.message');
+    
+    messageBtn.addEventListener('click',(event)=>{
+        let messagePopUp = document.querySelector('.messages-box');
+        messagePopUp.classList.toggle('hide');
+    })
+
+
+    
+
+
+
+
+
+
+})
+
+
+
+
+
+
 
 
 
