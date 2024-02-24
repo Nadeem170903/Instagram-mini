@@ -121,7 +121,7 @@ section{
    display:inline;
 }
 
-ul li i {
+.menu-list ul li i {
     font-size:24px;
     margin-right:22px;
 }
@@ -136,10 +136,11 @@ ul li i {
 }
 
 
- a{
+.menu-list ul li  a{
     text-decoration:none;
     color:white;
  }
+ 
 
  .more {
     color:white;
@@ -151,6 +152,11 @@ ul li i {
     font-size:20px;
     transition:0.3s;
 
+ }
+
+ .more a{
+  text-decoration: none;
+  color:white;
  }
 
  .more i {
@@ -406,6 +412,10 @@ span img{
    color:white;
    opacity:0.6;
    margin-top:10px;
+ }
+ .show-comment a{
+   text-decoration:none;
+   color:white;
  }
 
  .add-comment{

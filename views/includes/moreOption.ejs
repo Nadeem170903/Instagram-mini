@@ -1,4 +1,11 @@
 <div class="moreOption  hide">
+    <div class="settings"><i class="fa-solid fa-gear"></i> settings</div>
+    <div class="activity"><i class="fa-solid fa-chart-line"></i> Your activity</div>
+    <div class="Saved"><i class="fa-regular fa-bookmark"></i> Saved</div>
+    <div class="Switch-appearance"><i class="fa-solid fa-moon"></i> Switch appearnce</div>
+    <div class="report"><i class="fa-solid fa-circle-exclamation"></i> Report problem</div>
+    <div class="threads"><i class="fa-brands fa-threads"></i> Threads</div>
+    <div class="switch-accounts">Switch accounts</div>
     <div class="logout-button">
         <form method="POST" action="/logout">
             <button>Log out</button>
@@ -29,6 +36,11 @@
 
     .show{
         display:block;
+    }
+
+    .moreOption div i{
+        font-size:20px;
+        color:white;
     }
 
     .logout-button button{
