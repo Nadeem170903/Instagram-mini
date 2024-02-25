@@ -318,8 +318,10 @@ document.addEventListener("DOMContentLoaded", () => {
         moreOption.classList.toggle('show');
     });
 
-    document.addEventListener('click', () => {
-        if (moreOption.classList.contains('show')) {
+    document.addEventListener('click', (event) => {
+        let moreBtnCon = moreBtn.contains(event.target);
+        let moreOptionCon = moreOption.contains(event.target);
+        if (!moreOptionCon && moreOption.classList.contains('show') ) {
             moreOption.classList.remove('show');
             moreOption.classList.add('hide');
         }
@@ -571,20 +573,60 @@ document.addEventListener('DOMContentLoaded',async()=>{
 // messages 
 
 document.addEventListener('DOMContentLoaded',()=>{
-    let messageBtn = document.querySelector('.message');
-    
-    messageBtn.addEventListener('click',(event)=>{
-        let messagePopUp = document.querySelector('.messages-box');
-        messagePopUp.classList.toggle('hide');
-    })
+   
+    const InboxRout = window.location.pathname.includes('/inbox');
+    const menuBar = document.querySelector('.menu-bar').style;
+    const menuList = document.querySelector('.menu-list');
+    const pTag = menuList.querySelectorAll('ul li p');
+    const logo = document.querySelector('.logo img').style;
+    const logoI = document.querySelector('.logo i').style;
+    const logoSpan = document.querySelector('.logo span').style;
+    const LiTag = document.querySelectorAll('.menu-list ul li');
+    const LiDivTag = document.querySelectorAll('.menu-list ul li div');
+    const more = document.querySelector('.more').style;
+    const moreSpan = document.querySelector('.more a span').style;
+    const moreA = document.querySelector('.more a').style;
 
+    if(InboxRout){
+      menuBar.width = "48px";
+      menuBar.padding = "8px 12px 34px 12px";
+      menuBar.display = "flex";
+      menuBar.justifyContent = "space-between";
 
-    
+      menuList.style.width = '48px';
+      menuList.style.height = '500px';
+      menuList.style.display = 'flex';
+      menuList.style.justifyContent = 'center';
 
+      pTag.forEach(p => p.style.display = 'none');
+      logo.display = 'none';
+      logoI.display = 'block';
+      logoImarginBottom = '16px';
+      logImatginLeft = '10px';
 
+      LiTag.forEach(l =>{
+        l.style.width = '48px';
+        l.style.height = '48px';
+      });
 
+      LiDivTag.forEach(d =>{
+        d.style.width = '24px';
+        d.style.height = '24px';
+        d.style.marginLeft = '10px'
+      });
 
+      more.width = '48px';
+      more.height = '56px';
 
+      moreSpan.display = 'none';
+
+      moreA.marginLeft = '10px';
+
+      logoSpan.width = '48px';
+      logoSpan.height = '73px';
+      logoSpan.paddingBottom = '23px';
+
+    }
 
 })
 

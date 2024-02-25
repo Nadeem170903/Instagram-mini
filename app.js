@@ -248,9 +248,14 @@ app.post('/follow/:id',async(req,res,next)=>{
 
 
 
- app.get('/messages',(req,res)=>{
-    res.render('/views/includes/messages.ejs');
+
+ app.get('/inbox',(req,res)=>{
+    res.render('listings/messages.ejs')
  })
+
+
+
+
         
 
 
