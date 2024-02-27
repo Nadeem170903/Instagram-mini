@@ -3,32 +3,24 @@
         <div class="follower-tab"><h3>Follower</h3><span class="close-tab"><i class="fa-solid fa-xmark"></i></span></div>
         <div class="follower-search"><input type="search" placeholder="search"></div>
         <div class="follower-list">
+            <% if(currUser && currUser.follower.length){%> 
             <ul>
+                <%currUser.follower.forEach(follower => { %> 
                 <li>
                     <div class="follower-user">
                         <div class="follower-profile"><img></div>
                         <div class="follower-name">
-                            <span class="follower-username">Bob8323</span>
-                            <span class="follower-fullname">Bob</span>
+                            <span class="follower-username"><%follower.username%></span>
+                            <span class="follower-fullname"><%follower.fullname%></span>
                         </div>
                         <div class="followed-btn">
                             <button>remove</button>
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="follower-user">
-                        <div class="follower-profile"><img></div>
-                        <div class="follower-name">
-                            <span class="follower-username">Bob8323</span>
-                            <span class="follower-fullname">Bob</span>
-                        </div>
-                        <div class="followed-btn">
-                            <button>remove</button>
-                        </div>
-                    </div>
-                </li>
+                <% }) %>
             </ul>
+            <% } %>
 
         </div>
     </div>

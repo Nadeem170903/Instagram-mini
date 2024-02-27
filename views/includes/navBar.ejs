@@ -13,7 +13,7 @@
             <li><div><a href="###" class="menu-btn"><i class="fa-solid fa-heart"></i><p>Notification</p></a></div></li>
             <li><div><a href="###" class="Create menu-btn"><i class="fa-solid fa-plus"></i><p>Create</p></a></div></li>
             <% if (currUser && currUser.username) { %>
-            <li><div><a href="/<%=currUser.username%>"><img src="<%=currUser.profile.url%>" style="height:25px; width:25px;"></img><p>Profile</p></a></div></li>
+            <li><div><a href="/profile/<%=currUser.username%>"><img src="<%=currUser.profile.url%>" style="height:25px; width:25px;"></img><p>Profile</p></a></div></li>
             <% } %>
         </ul>
     </div>

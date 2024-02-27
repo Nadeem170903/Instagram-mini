@@ -53,7 +53,7 @@
                                                     <span class="profile-outline"><img src="<%=p.user.profile.url%>"></span>
                                                 </span>
                                                 <span class="profile-name">
-                                                    <form method="POST" action="/home/profile/<%=p.id%>/?username=<%=p.user.username%>">
+                                                    <form method="GET" action="/profile/<%=p.user.username%>">
                                                         <button><%= p.user.username%></button>
                                                     </form>
                                                 </span>

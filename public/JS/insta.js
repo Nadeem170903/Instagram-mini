@@ -465,19 +465,29 @@ document.addEventListener('DOMContentLoaded',()=>{
    
 
  
-    followerBtn.addEventListener('click',(event)=>{
-        console.log('click');
+    followerBtn.addEventListener('click',async (event)=>{
+        event.preventDefault();
+        let show = followerPages.classList.contains("hide");
+        console.log('this is show contains',show);
+         if(show){
+         followerPages.classList.remove('hide');
+         }else{
+             followerPages.classList.add('hide');
+         }
+ 
+         show = !show;
+         console.log('click');
 
-     let show = followerPages.classList.contains("hide");
-       console.log('this is show contains',show);
-        if(show){
-        followerPages.classList.remove('hide');
-        }else{
-            followerPages.classList.add('hide');
+     let response = await fetch('/followers',{
+        method:'GET',
+        headers:{
+            'content-type':'application/json',
         }
+     })
 
-        show = !show;
-        console.log('click');
+    
+
+  
     });
 
 
@@ -491,7 +501,7 @@ document.addEventListener('click',(event)=>{
     }
 
   
-})
+});
 
 });
 
@@ -505,6 +515,11 @@ document.addEventListener('DOMContentLoaded',async()=>{
     let postUserId = followBtn.getAttribute('post-user-id');
     let followers = document.querySelector('.follower-count');
     let following = document.querySelector('.followings');
+
+    if(currUserId === postUserId){
+        followBtn.style.display = 'none';
+        followingBtn.style.display = 'none';
+    }
 
     let response = await fetch(`/followed/${currUserId}`,{
         method:"POST",
