@@ -3,24 +3,12 @@
         <div class="follower-tab"><h3>Follower</h3><span class="close-tab"><i class="fa-solid fa-xmark"></i></span></div>
         <div class="follower-search"><input type="search" placeholder="search"></div>
         <div class="follower-list">
-            <% if(currUser && currUser.follower.length){%> 
+          
             <ul>
-                <%currUser.follower.forEach(follower => { %> 
-                <li>
-                    <div class="follower-user">
-                        <div class="follower-profile"><img></div>
-                        <div class="follower-name">
-                            <span class="follower-username"><%follower.username%></span>
-                            <span class="follower-fullname"><%follower.fullname%></span>
-                        </div>
-                        <div class="followed-btn">
-                            <button>remove</button>
-                        </div>
-                    </div>
-                </li>
-                <% }) %>
+                
             </ul>
-            <% } %>
+           
+           
 
         </div>
     </div>
@@ -93,6 +81,8 @@
     }
 
     .follower-list{
+        width:420px;
+        height:340px;
         overflow-y:scroll;
         overflow-x:hidden;
     }
@@ -109,6 +99,12 @@
         background-color:yellow;
         border-radius: 50%;
 
+    }
+
+    .follower-user .follower-profile img{
+        width:54px;
+        height:49px;
+        border-radius:50%;
     }
 
     .follower-user .follower-name{

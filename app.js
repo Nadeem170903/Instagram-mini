@@ -207,6 +207,7 @@ app.post('/unlike/:id',async (req,res)=>{
 
 app.post('/followed/:id',wrapA(async(req,res)=>{
     let currUser = res.locals.currUser;
+    await currUser.populate('follower');
     let{id} = req.params;
     let {postUserId} = req.body;
     console.log('this is currr user Id',id);
@@ -257,9 +258,16 @@ app.post('/follow/:id',async(req,res,next)=>{
  }));
   
 
- app.get('/followers',(req,res)=>{
+ app.get('/profile/:username/followers',async (req,res)=>{
+    let {username} = req.params;
+    console.log('this is username',username);
     console.log('this is follower routes');
-    let 
+    let users = await User.findByUsername(username).populate('follower');
+    console.log(users);
+    res.json({users});
+  
+
+   
  })
 
  app.get('/inbox',(req,res)=>{

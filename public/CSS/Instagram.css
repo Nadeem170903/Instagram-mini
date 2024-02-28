@@ -578,6 +578,30 @@ span img{
   border:none;
  }
 
+ .edit-profile-btn{
+  width:110px;
+  height:40px;
+  font-weight:550;
+  font-size:15px;
+  padding: 7px 16px 7px 16px;
+  color:white;
+  background:#383939;
+  border-radius:8px;
+  border:none;
+ }
+
+ .view-archive-btn{
+  width:110px;
+  height:40px;
+  font-weight:550;
+  font-size:15px;
+  padding: 7px 16px 7px 16px;
+  color:white;
+  background:#383939;
+  border-radius:8px;
+  border:none;
+ }
+
  .btn:hover{
   background:rgb(64, 62, 62);
  }
@@ -1070,5 +1094,9 @@ background-color: transparent;
   appearance: none;
   background-color: transparent;
 }
+
+
+
+
 
 
