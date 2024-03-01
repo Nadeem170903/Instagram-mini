@@ -1,0 +1,145 @@
+<div class="followings-page hide">
+    <div class="following-user">
+        <div class="following-tab"><h3>Following</h3><span class="close-tab"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="following-search"><input type="search" placeholder="search"></div>
+        <div class="following-list">
+          
+            <ul>
+                
+            </ul>
+           
+           
+
+        </div>
+    </div>
+
+</div>
+<style>
+    .followings-page{
+        width:100%;
+        height:100%;
+        background-color:transparent;
+        position:absolute;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+       
+    }
+
+    .followings-page ul{
+         z-index: 1;
+    }
+
+    .hide{
+        display:none;
+    }
+
+
+    .following-user{
+        width:420px;
+        height:420px;
+        background-color: rgb(47, 46, 46);
+        z-index: 1;
+    }
+    .following-user .following-tab{
+        width:420px;
+        height:55px;
+        border-bottom:1px solid grey;
+        display:flex;
+
+    }
+
+    .following-tab h3{
+        color:white;
+        width:380px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left:30px;
+
+    }
+    .close-tab{
+        width:20%;
+    }
+    .close-tab i{
+        color:white;
+        font-size:24px;
+
+    }
+
+    .following-tab .close-tab{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .following-search input{
+        width:400px;
+        background-color: rgb(47, 46, 46);
+        border:none;
+        font-size: 20px;
+        color:white;
+    }
+
+    .following-list{
+        width:420px;
+        height:340px;
+        overflow-y:scroll;
+        overflow-x:hidden;
+    }
+    .following-list .following-user{
+        width:372px;
+        height:44px;
+        padding:8px 16px 8px 16px;
+        display:flex;
+        justify-content: space-between;
+    }
+    .following-user .following-profile{
+        width:54px;
+        height:49px;
+        background-color:yellow;
+        border-radius: 50%;
+
+    }
+
+    .following-user .following-profile img{
+        width:54px;
+        height:49px;
+        border-radius:50%;
+    }
+
+    .following-user .following-name{
+        width:242px;
+        margin-top:10px;
+        display:flex;
+        flex-direction: column;
+        color:white;
+    }
+
+    .following-user .following-name span{
+        margin-left:10px;
+    }
+
+    .following-name .following-username{
+        font-size: 18px;;
+    }
+    .followeing-name .following-fullname{
+        font-size:15px;
+        opacity:0.7;
+    }
+    
+
+    .following-user .following-btn button{
+        width:100px;
+        height:40px;
+        border:none;
+        border-radius: 10px;
+        padding: 0 16px 0 16px;
+        background-color:rgb(109, 107, 107);
+        font-weight: 600;
+        font-size: 18px;
+        color:white;
+
+    }
+</style>
+
+

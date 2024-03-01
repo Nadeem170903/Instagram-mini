@@ -346,16 +346,12 @@ document.addEventListener('DOMContentLoaded',async()=>{
          let data = await response.json();
          let likedUser = data.likedUser.likedPost;
          console.log("this is data",likedUser);
- 
 
-
-    likebtn.forEach(async (like) =>{
-    
+        likebtn.forEach(async (like) =>{
         let postId = like.getAttribute('data-post-id');
-
-
         let hasLiked = likedUser.some(post => post._id === postId);
         console.log(hasLiked);
+
         if(hasLiked){
             like.style.display = "none"
             let container = like.closest('.caption-sections');
@@ -369,11 +365,8 @@ document.addEventListener('DOMContentLoaded',async()=>{
         }
         like.addEventListener('click', async (event)=>{
             event.preventDefault();
-            
-    
             let postId = like.getAttribute('data-post-id');
             let userId = like.getAttribute('data-user-id');
-           
             try {
                 // Send a POST request to your server to update the like count
                 const response = await fetch(`/like/${postId}`, {
@@ -382,80 +375,61 @@ document.addEventListener('DOMContentLoaded',async()=>{
                         'Content-Type': 'application/json'
                     }
                 });
-            
                 if (!response.ok) {
                     throw new Error('Failed to like the post');
                 }
-    
                 // Update the like count on the client side
-                let  data = await response.json();
+                  let  data = await response.json();
                   let total = data.populatedPost.likes.length;
-    
                   let container = like.closest('.caption-sections');
                   console.log(container);
                   let totalLike = container.querySelector('.total-likes');
                   totalLike.innerText = total;
                   event.target.style.display = "none";
                   let unlike = container.querySelector('.unlikeBtn');
-                      unlike.style.display = "block";
-
+                   unlike.style.display = "block";
             } catch (error) {
                 console.error('Error:', error);
             }
-    
-           
-          
         });
     });
-}catch (error){
+    }catch (error){
     console.log(error);
-}
+    }
 
+    // unlike 
 
+    let unlikes = document.querySelectorAll('.unlikeBtn');
+    unlikes.forEach(unlike => unlike.addEventListener('click',async (event)=>{
 
-
-
-
-
-
-
-// unlike 
-
-let unlikes = document.querySelectorAll('.unlikeBtn');
-
-
-unlikes.forEach(unlike => unlike.addEventListener('click',async (event)=>{
-    event.preventDefault();
-  try{
-    let postId = unlike.getAttribute('data-post-id');
-    let userId = unlike.getAttribute('data-user-id');
-
-
-    let response = await fetch(`/unlike/${postId}`,{
-        method:'POST',
-        headers:{
-            'content-type':'application/json',
+         event.preventDefault();
+        try{
+          let postId = unlike.getAttribute('data-post-id');
+          let userId = unlike.getAttribute('data-user-id');
+          let response = await fetch(`/unlike/${postId}`,{
+              method:'POST',
+              headers:{
+                  'content-type':'application/json',
+              }
+        });
+           let data = await response.json();
+           console.log('this is unlike data',data.likes.length);
+           let container = unlike.closest('.caption-sections');
+           let total = container.querySelector('.total-likes');
+           total.innerText = data.likes.length;
+           unlike.style.display = 'none';
+           const likeBtn = container.querySelector('.likeBtn');
+           likeBtn.style.display = 'block';
+        }catch(error){
+           console.log(error);
         }
-    });
-
-    let data = await response.json();
-    console.log('this is unlike data',data.likes.length);
-    let container = unlike.closest('.caption-sections');
-    let total = container.querySelector('.total-likes');
-    total.innerText = data.likes.length;
-    unlike.style.display = 'none';
-    const likeBtn = container.querySelector('.likeBtn');
-    likeBtn.style.display = 'block';
-  }catch(error){
-    console.log(error);
-  }
   
-}));
+    }));
 
 });
 
 
-// followers 
+// showing followerList 
 
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -465,17 +439,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     let currUserName =  followerBtn.getAttribute('currUser-name');
     let postUserName = followerBtn.getAttribute('postUser-name');
     let followerList = document.querySelector('.follower-list ul');
-   
-
     console.log(currUserName);
     console.log(postUserName);
-   
-
- 
     followerBtn.addEventListener('click',async (event)=>{
-      
-
-     
         let show = followerPages.classList.contains("hide");
         console.log('this is show contains',show);
          if(show){
@@ -543,30 +509,111 @@ document.addEventListener('DOMContentLoaded',()=>{
                 followerList.appendChild(followerItem);
             });
         }
- 
-
-
-  
-
-    
-
-  
     });
 
-
-
-document.addEventListener('click',(event)=>{
-    followerList.innerHTML = "";
-    let followerContain = followerPages.contains(event.target);
-    let btnContains = followerBtn.contains(event.target);
-    let userContain = followerUser.contains(event.target);
-    if(followerContain && !btnContains &&  !userContain ){
-         followerPages.classList.add('hide');
-    }
-
-  
+    document.addEventListener('click',(event)=>{
+        followerList.innerHTML = "";
+        let followerContain = followerPages.contains(event.target);
+        let btnContains = followerBtn.contains(event.target);
+        let userContain = followerUser.contains(event.target);
+        if(followerContain && !btnContains &&  !userContain ){
+             followerPages.classList.add('hide');
+        }
+    });
 });
 
+
+
+//showing following list
+document.addEventListener('DOMContentLoaded',()=>{
+    let followerBtn = document.querySelector('.following');
+    let followerPages = document.querySelector('.followings-page');
+    let  followerUser = document.querySelector('.following-user');
+    let currUserName =  followerBtn.getAttribute('currUser-name');
+    let postUserName = followerBtn.getAttribute('postUser-name');
+    let followerList = document.querySelector('.following-list ul');
+    console.log(currUserName);
+    console.log(postUserName);
+    followerBtn.addEventListener('click',async (event)=>{
+        let show = followerPages.classList.contains("hide");
+        console.log('this is show contains',show);
+         if(show){
+         followerPages.classList.remove('hide');
+         }else{
+             followerPages.classList.add('hide');
+         }
+
+        if(currUserName !== postUserName){
+            let response = await fetch(`/profile/${postUserName}/following`,{
+                method:'GET',
+                headers:{
+                    'content-type':'application/json',
+                }
+             });
+
+             let data = await response.json();
+             console.log(data.users);
+
+             data.users.following.forEach(following => {
+                const followerItem = document.createElement('li');
+               
+                followerItem.innerHTML = `
+                    <div class="following-user">
+                        <div class="following-profile"><img src="${following.profile.url}" alt="Profile Image"></div>
+                        <div class="following-name">
+                            <span class="following-username">${following.username}</span>
+                            <span class="following-fullname">${following.fullname}</span>
+                        </div>
+                        <div class="following-btn">
+                            <button>remove</button>
+                        </div>
+                    </div>
+                `;
+                followerList.appendChild(followerItem);
+            });
+
+
+        } else{
+            let response = await fetch(`/profile/${currUserName}/following`,{
+                method:'GET',
+                headers:{
+                    'content-type':'application/json',
+                }
+             });
+
+             let data = await response.json();
+             console.log(data.users);
+
+             data.users.following.forEach(following => {
+                const followerItem = document.createElement('li');
+                
+                followerItem.innerHTML = `
+                <div class="following-user">
+                <div class="following-profile"><img src="${following.profile.url}" alt="Profile Image"></div>
+                <div class="following-name">
+                    <span class="following-username">${following.username}</span>
+                    <span class="following-fullname">${following.fullname}</span>
+                </div>
+                <div class="following-btn">
+                    <button>remove</button>
+                </div>
+            </div>
+                `;
+                followerList.appendChild(followerItem);
+            });
+        }
+    });
+
+    document.addEventListener('click',(event)=>{
+        
+        let followerContain = followerPages.contains(event.target);
+        let btnContains = followerBtn.contains(event.target);
+        let userContain = followerUser.contains(event.target);
+        if(followerContain && !btnContains &&  !userContain ){
+             followerPages.classList.add('hide');
+             followerList.innerHTML = "";
+        }
+    });
 });
 
 
@@ -655,7 +702,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
         followBtn.style.display = "block";
         followingBtn.style.display = "none";
 
-     });
+    });
 })
 
 
@@ -718,33 +765,4 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     }
 
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+});
