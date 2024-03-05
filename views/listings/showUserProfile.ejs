@@ -17,7 +17,7 @@
                  <div class="button">
                     <button followed-user-id="<%=currUser._id%>" Post-user-id="<%=user._id%>" class="follow-btn">follow</button>
                     <button followed-user-id="<%=currUser._id%>" Post-user-id="<%=user._id%>" class="followings-btn">following</button>
-                    <button class="message-btn">message</button>
+                    <form method="POST" action="/inbox/<%=user._id%>"><button Current-user-id="<%=currUser._id%>" Post-user-id="<%=user._id%>" class="message-btn">message</button></form>
                     <button class="btn edit-profile-btn" href="###">Edit profile</button>
                     <button class="btn view-archive-btn" href="###">View archiv</button>
                  </div>

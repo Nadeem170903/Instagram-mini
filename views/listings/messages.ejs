@@ -60,8 +60,8 @@
             <div class="active-chates">
                 <div class="user-info">
                     <div class="username-profile">
-                        <div class="profile"><img></div>
-                        <div class="username">Nadeem_shaikh24</div>
+                        <div class="profile"><img src="<%=reciever.profile.url%>"></div>
+                        <div class="username"><%=reciever.fullname%></div>
                     </div>
                     <div class="video-call-btn">
                         <div class="call"><i class="fa-solid fa-phone"></i></div>
@@ -69,6 +69,23 @@
                         <div class="info"><i class="fa-solid fa-info"></i></div>
                     </div>
 
+                </div>
+                <div class="conversation-data">
+
+                </div>
+                <div class="type-section">
+                    <div class="typing-bar">
+                        <div class="emoji"><i class="fa-regular fa-face-smile"></i></div>
+                        <div class="typing-area">
+                            <input id="messageInput" placeholder="Message...">
+                        </div>
+                        <div class="recording-file-like" id="recordingFileLike">
+                            <div class="recoding"><i class="fa-solid fa-microphone"></i></div>
+                            <div class="gellary"><i class="fa-regular fa-image"></i></div>
+                            <div class="heart"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
             <div class="no-chats">

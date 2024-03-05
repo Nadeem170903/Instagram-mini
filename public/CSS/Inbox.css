@@ -64,6 +64,7 @@
     height:600px;
     overflow-y:scroll;
     overflow-x:hidden;
+    scrollbar-color: grey rgb(62, 62, 62);
 }
 
 .chat-list .messanger{
@@ -125,7 +126,6 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    display:none;
 }
 
 .no-chats .symbols{
@@ -174,7 +174,7 @@
 
 
 .active-chates .user-info{
-    width:1030px;
+    width:1035px;
     height:75px;
     background-color:black;
     position:fixed;
@@ -207,6 +207,13 @@
     background-color:red;
 }
 
+.username-profile .profile img{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    
+}
+
 .user-info .video-call-btn{
 
     width:124px;
@@ -222,4 +229,86 @@
 .video-call-btn i{
     font-size: 17px;
     color:white
+}
+
+
+
+.active-chates .type-section{
+    width:1067px;
+    height:77px;
+    background-color:black;
+    position:fixed;
+    bottom:0;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.type-section .typing-bar{
+    width:980px;
+    height:44px;
+    background-color:black;
+    padding:0 16px 0 11px;
+    border-radius: 200px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border:1px solid rgb(81, 81, 81);
+
+}
+
+.typing-bar .emoji{
+    width:32px;
+    height:32px;
+    padding:6px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emoji i{
+    font-size:23px;
+    color:white;
+}
+
+.typing-bar .typing-area{
+    width:900px;
+    color:white;
+    background-color:black;
+    text-align: left;
+}
+
+.typing-area input{
+    width:860px;
+    height:30px;
+    color:white;
+    background-color:black;
+    font-size: 18px;
+    border:none;
+}
+
+.typing-area input:focus{
+    outline: none;
+    border:none;
+    
+}
+
+.typing-bar .recording-file-like{
+    width:130px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.recording-file-like {
+    font-size:20px;
+    color:white;
+}
+.active-chates .conversation-data{
+    height:580px;
+    margin-top:77px;
+    width:1060px;
+   scrollbar-color: grey rgb(62, 62, 62);
+    overflow-y: scroll;
 }

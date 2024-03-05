@@ -171,7 +171,6 @@ app.post('/liked',async(req,res)=>{
    try{
     let {userId} = req.body;
     let likedUser = await User.findById(userId).populate('likedPost');
-    console.log(likedUser);
      res.json({likedUser});
    } catch(e){
        console.log("this  is error",e);
@@ -210,8 +209,6 @@ app.post('/followed/:id',wrapA(async(req,res)=>{
     await currUser.populate('follower');
     let{id} = req.params;
     let {postUserId} = req.body;
-    console.log('this is currr user Id',id);
-    console.log('this is post user Id',postUserId);
     let followerUser = await User.findById(postUserId).populate('follower');
     let followingUser = await User.findById(postUserId).populate('following');
     let hasFollowing = followerUser.following.some(following => following._id.equals(id));
@@ -243,8 +240,6 @@ app.post('/follow/:id',async(req,res,next)=>{
  app.post('/unfollow/:id',wrapA(async(req,res)=>{
     let{id} = req.params;
     let {postUserId} = req.body;
-    console.log('this is currr user Id',id);
-    console.log('this is post user Id',postUserId);
     let followerUser = await User.findById(postUserId).populate('follower');
     let followingUser = await User.findById(id);
     let hasFollowed = followerUser.follower.some(follower => follower._id.equals(id));
@@ -281,8 +276,20 @@ app.post('/follow/:id',async(req,res,next)=>{
 
  // users messages
  app.get('/inbox',(req,res)=>{
-    res.render('listings/messages.ejs')
- })
+    res.render('listings/messages.ejs');
+ });
+
+
+ app.post('/inbox/:id',async(req,res)=>{
+    let {id} = req.params;
+    console.log(id);
+    let reciever = await User.findById(id);
+    console.log(reciever);
+    res.render('listings/messages.ejs',{reciever})
+
+ });
+
+
 
 
 
