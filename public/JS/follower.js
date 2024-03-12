@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
     console.log(currUserId);
     console.log(postUserId);
 
-    let response = await fetch(`/followed/${currUserId}`,{
+    let response = await fetch(`/follow/followed/${currUserId}`,{
         method:"POST",
         headers:{
             'content-type':'application/json',

@@ -308,7 +308,66 @@
 .active-chates .conversation-data{
     height:580px;
     margin-top:77px;
-    width:1060px;
+    width:1062px;
    scrollbar-color: grey rgb(62, 62, 62);
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    flex-flow: column-reverse;
+    align-items: flex-start;
+ 
+}
+
+.sender-content{
+      
+    max-width: fit-content;
+
+    max-height: fit-content;
+    padding:8px;
+    border-radius: 10px;
+    background-color:rgb(47, 138, 236);
+    align-self:flex-end;
+    justify-content: end;
+ 
+ 
+}
+.sender-content p{
+    color:white;
+    font-size: 18px;
+    font-weight: 500;
+    
+}
+
+.participant-content{
+    max-width: fit-content;
+    max-height: fit-content;
+    padding:8px;
+    border-radius: 10px;
+    background-color:rgb(64, 64, 64);
+}
+
+.participant-content p{
+    color:white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.typing-bar .send-message-btn{
+    width:130px;
+    color:#042e64;
+    font-weight:600;
+    text-align:right;
+    display: none;
+    cursor: default;
+
+}
+
+.send-message-btn button{
+    width:130px;
+    height:10px;
+    font-size: 18px;
+    border:none;
+    background-color: transparent;
+    color:#06397c;
+    font-weight: 550;
 }

@@ -71,6 +71,9 @@
 
                 </div>
                 <div class="conversation-data">
+                    <div class="sender-content"><p>hellow</p></div>
+                    <div class="participant-content"><p>hellow</p></div>
+                    <div class="sender-content"><p>hokw</p></div>
 
                 </div>
                 <div class="type-section">
@@ -78,13 +81,14 @@
                         <div class="emoji"><i class="fa-regular fa-face-smile"></i></div>
                         <div class="typing-area">
                             <input id="messageInput" placeholder="Message...">
+                            
                         </div>
                         <div class="recording-file-like" id="recordingFileLike">
                             <div class="recoding"><i class="fa-solid fa-microphone"></i></div>
                             <div class="gellary"><i class="fa-regular fa-image"></i></div>
                             <div class="heart"><i class="fa-regular fa-heart"></i></div>
                         </div>
-                        
+                        <div class="send-message-btn"><button receiver-id="<%= reciever._id%>" sender-id="<%=currUser._id%>"  id="send-message-btn">send</button></div>
                     </div>
                 </div>
             </div>
@@ -100,3 +104,4 @@
     </div>
 
 </div>
+

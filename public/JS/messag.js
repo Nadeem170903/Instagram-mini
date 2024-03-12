@@ -76,40 +76,53 @@ if(isNoChats){
 
 const messageInput = document.getElementById('messageInput');
 const recordingFileLike = document.getElementById('recordingFileLike');
+const sendBtn = document.querySelector('.send-message-btn');
+
+const messagecheck = (msg)=>{
+        // Check if the input field is empty
+        if (msg.value.trim() === '' || msg.value == null) {
+            // If it's empty, show the recording-file-like section
+            recordingFileLike.style.display = 'flex'; // or 'block' if it's a block-level element
+            sendBtn.style.display = 'none';
+        } else{
+            recordingFileLike.style.display = 'none';
+            sendBtn.style.display = 'block';
+        }
+}
+
 console.log(messageInput,recordingFileLike)
 messageInput.addEventListener('input', function() {
-    // Check if the input field is empty
-    if (this.value.trim() === '') {
-        // If it's empty, show the recording-file-like section
-        recordingFileLike.style.display = 'flex'; // or 'block' if it's a block-level element
-    } else{
-        recordingFileLike.style.display = 'none';
-    }
+
+    messagecheck(this)
+
 });
 
 document.addEventListener('DOMContentLoaded',()=>{
-    const msgBtn = document.querySelector('.message-btn');
-    const currUserId = msgBtn.getAttribute('Current-user-id');
-    const PostUserId = msgBtn.getAttribute('Post-user-id');
-    console.log('tis is current user id',currUserId);
-    console.log('this is post user id',PostUserId);
+    const sendBtn = document.getElementById('send-message-btn');
+    const messageInput = document.getElementById('messageInput');
+    const senderId = sendBtn.getAttribute('sender-id');
+    const receiverId = sendBtn.getAttribute('receiver-id');
+    let messageContent = messageInput.value;
+    
+    console.log('tis is current user id',senderId);
+    console.log('this is post user id',receiverId);
 
-    // msgBtn.addEventListener('click',async(e)=>{
+    sendBtn.addEventListener('click',async(e)=>{
+        let response = await fetch(`/inbox/chates/${receiverId}/?senderId=${senderId}`,{
+            method:"POST",
+            headers:{
+                'content-type':'application/json',
+            },
+            body: JSON.stringify({messageContent}),
+            
+        });
+        console.log(response);
+        messageInput.value = null;
+        messagecheck(messageInput);
+    });
 
-    //     let response = await fetch(`/inbox/${PostUserId}`,{
-    //         method:"POST",
-    //         headers:{
-    //             'content-type':'application/json',
-    //         },
-
-    //     });
-    // })
-
-    // Get the input element and the recording-file-like section
-
-
-// Add event listener for input events on the input field
+});
 
 
 
-})
+// Conversation data 

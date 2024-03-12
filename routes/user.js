@@ -17,7 +17,7 @@ router.get('/signup',(req,res)=>{
     res.render('listings/signup');
 });
 
-router.post('/signup', userValidator, upload.single('profile'), wrapA(async (req, res) => {
+router.post('/signup', userValidator, upload.single('profile'), wrapA(async (req, res,next) => {
     
         let { fullname, username, password, contact } = req.body;
         let filename = req.file.filename;
@@ -35,7 +35,11 @@ router.post('/signup', userValidator, upload.single('profile'), wrapA(async (req
         }
         let registeredUser = await User.register(newUser, password);
         console.log(registeredUser);
-        res.redirect('/home');
+        req.login(registeredUser,(e)=>{
+            if(e){
+                return next(e);
+            } res.redirect('/home');
+        })
    
 }));
 

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
     let userId = postSection.getAttribute('data-user-id');
     console.log('this is user id',userId);
     try{
-        let response = await fetch('/liked',{
+        let response = await fetch('/like',{
             method:'POST',
             headers:{
             'Content-Type':'application/json'
@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
 
     let unlikes = document.querySelectorAll('.unlikeBtn');
     unlikes.forEach(unlike => unlike.addEventListener('click',async (event)=>{
+        console.log('click');
 
          event.preventDefault();
         try{
@@ -81,6 +82,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
                   'content-type':'application/json',
               }
         });
+        console.log(response);
            let data = await response.json();
            console.log('this is unlike data',data.likes.length);
            let container = unlike.closest('.caption-sections');
