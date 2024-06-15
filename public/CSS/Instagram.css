@@ -87,7 +87,7 @@ section{
 .logo img{
     width:125px;
     height:40px;
-    margin-left:21px;
+    margin-right: 100px;
     margin-top:40px;
 }
 
@@ -115,7 +115,7 @@ section{
      padding-top:10px;
      padding-left:5px;
      transition:0.3s;
-}
+} 
 
 .menu-list ul li p{
    display:inline;
@@ -289,6 +289,16 @@ li:hover{
 .profile-name{
    margin-left:10px;
    margin-top:10px;
+}
+
+
+.profile-name button{
+  color:white;
+  background-color: black;
+  border:none;
+  font-weight: 600;
+  padding-left: 5px;
+  font-size: 16px;
 }
 
 .profile-img{
@@ -510,6 +520,11 @@ span img{
   color:white;
   font-size:22px;
  }
+ .username a{
+  color:white;
+  text-decoration: none;
+  font-weight: 600;
+ }
 
  .edit-archiv-btn{
   display:flex;
@@ -520,7 +535,7 @@ span img{
 
 
  .profile-detail .button{
-   display:grid;
+   display:flex;
   grid-template-columns: 110px 110px;
   grid-gap: 10px;
   width:222px;
@@ -1097,5 +1112,111 @@ background-color: transparent;
 
 
 
+/* for suggestion */
 
 
+.main-container {
+  width: 400px;
+  height: 700px;
+  overflow: hidden;
+  background-color:black;
+  color: white;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  width: 347px;
+  height: 80px;
+  border-bottom: 1px solid #333;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-info img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.profile-info h2 {
+  margin-left: 16px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profile-info h3 {
+  margin-left: 16px;
+  font-size: 16px;
+}
+
+.switch-button {
+  background-color: black;
+  color: #007bff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.suggestions-list {
+  margin-top: 24px;
+  padding: 16px;
+  overflow-y: auto;
+  height: 420px;
+  overflow: hidden;
+}
+
+.suggestion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  height: 45px;
+}
+
+.suggestion-item img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.suggestion-item h3 {
+  margin-left: 16px;
+  font-size: 16px;
+  width:280px;
+}
+
+.follow-button {
+  background-color: black;
+  color:  #007bff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.footer-section {
+  text-align: center;
+  padding: 16px;
+  color: #333;
+  color: white;
+  width: 100%;
+  height: 40px;
+  background-color: black;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.footer-section a {
+  color: #007bff;
+  text-decoration: none;
+}

@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
     } else if(currUserId === postUserId) {
         followBtn.style.display = 'none';
         followingBtn.style.display = 'none';
-        msgBtn.style.display = 'none';
+        msgBtn.style.display = "none"
         editBtn.style.display = 'block';
         viewBtn.style.display = 'block';
     } else {

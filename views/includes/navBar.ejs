@@ -1,7 +1,7 @@
 <div class="menu-bar">
     <div class="logo">
         <span><i class="fa-brands fa-instagram"></i></span>
-        <img src="C:\Users\zak\Desktop\Instagram-Project\public\insta-requirement\instaLogo.png">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThebCvFX8b5_KyEIglLdDWtqstxXwz33_DOw&s">
     </div>
     <div class="menu-list">
         <ul>
@@ -13,7 +13,7 @@
             <li><div><a href="###" class="menu-btn"><i class="fa-solid fa-heart"></i><p>Notification</p></a></div></li>
             <li><div><a href="###" class="Create menu-btn"><i class="fa-solid fa-plus"></i><p>Create</p></a></div></li>
             <% if (currUser && currUser.username) { %>
-            <li><div><a href="/profile/<%=currUser.username%>"><img src="<%=currUser.profile.url%>" style="height:25px; width:25px;"></img><p>Profile</p></a></div></li>
+            <li><div><a style="display: flex; align-items: center;" href="/profile/<%=currUser.username%>"><img src="<%=currUser.profile.url%>" style="height:35px; width:35px; border-radius: 50%; margin-right: 15px;"></img><p>Profile</p></a></div></li>
             <% } %>
         </ul>
     </div>
